@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Etkinliğe Katıl";
+}
+
+<div class="container mt-5">
+    <h2>@ViewBag.EventTitle Etkinliğine Katıl</h2>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <input type="hidden" name="EventId" value="@ViewBag.EventId" />
+
+                <div class="form-group mb-3">
+                    <label for="ParticipantName" class="control-label">Adınız Soyadınız</label>
+                    <input name="ParticipantName" class="form-control" required />
+                </div>
+
+                <div class="form-group mt-4">
+                    <input type="submit" value="Katıl" class="btn btn-primary" />
+                    <a asp-controller="Events" asp-action="Details" asp-route-id="@ViewBag.EventId" class="btn btn-secondary">İptal</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

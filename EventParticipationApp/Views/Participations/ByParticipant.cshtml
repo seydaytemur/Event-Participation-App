@@ -1,0 +1,114 @@
+﻿@model List<EventParticipationApp.Models.Participation>
+
+@{
+    ViewData["Title"] = "Katıldığım Etkinlikler";
+}
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">Katıldığım Etkinlikler</h2>
+        </div>
+
+        <div class="card-body">
+            <!-- Arama Formu -->
+            <form method="post" class="mb-4">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="input-group">
+                            <input type="text" name="participantName" class="form-control form-control-lg"
+                                   placeholder="Adınızı ve soyadınızı giriniz" required
+                                   value="@ViewBag.ParticipantName">
+                            
+                            <button type="submit" class="btn btn-primary btn-lg ms-3"> <i class="fas fa-search"></i> Katılımları Listele </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Sonuçlar -->
+            @if (ViewBag.ParticipantName != null)
+            {
+                <div class="mt-4">
+                    <h4 class="text-muted mb-3">
+                        <i class="fas fa-user"></i> @ViewBag.ParticipantName için katılım bilgileri:
+                    </h4>
+
+                    @if (Model != null && Model.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th width="30%">Etkinlik Adı</th>
+                                        <th width="20%">Tarih</th>
+                                        <th width="40%">Açıklama</th>
+                                        <th width="10%">Durum</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="@(item.Event.EventDate < DateTime.Now ? "table-secondary" : "")">
+                                            <td>@item.Event.Title</td>
+                                            <td>@item.Event.EventDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                            <td>@(item.Event.Description ?? "Açıklama bulunmuyor")</td>
+                                            <td>
+                                                @if (item.Event.EventDate < DateTime.Now)
+                                                {
+                                                    <span class="badge bg-secondary">Tamamlandı</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-success">Yaklaşıyor</span>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-warning">
+                            <i class="fas fa-exclamation-circle"></i> Kayıtlı etkinlik bulunamadı.
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="card-footer text-muted">
+            <small>Son güncelleme: @DateTime.Now.ToString("dd.MM.yyyy HH:mm")</small>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .table-hover tbody tr:hover {
+            background-color: #f8f9fa;
+            cursor: pointer;
+        }
+
+        .badge {
+            font-size: 0.9em;
+            padding: 5px 8px;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Tablo satırlarına tıklanabilirlik ekleme
+            $('table tbody tr').click(function () {
+                var eventId = $(this).find('td:first').data('event-id');
+                if (eventId) {
+                    window.location.href = '/Events/Details/' + eventId;
+                }
+            });
+        });
+    </script>
+}

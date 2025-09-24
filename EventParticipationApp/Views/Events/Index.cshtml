@@ -1,0 +1,48 @@
+﻿@model IEnumerable<EventParticipationApp.Models.Event>
+
+@{
+    ViewData["Title"] = "Etkinlikler";
+}
+
+<h1>Etkinlikler</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Yeni Etkinlik Ekle</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Başlık</th>
+            <th>Açıklama</th>
+            <th>Tarih</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.EventDate)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Düzenle</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Detaylar</a>
+
+                    <!-- SİL BUTONU İÇİN YAPILAN DEĞİŞİKLİK BURADA BAŞLAR -->
+                    <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline" onsubmit="return confirm('Bu etkinliği silmek istediğinize emin misiniz? Bu işlem geri alınamaz.');">
+                        <button type="submit" class="btn btn-sm btn-danger">Sil</button>
+                    </form>
+                    <!-- SİL BUTONU İÇİN YAPILAN DEĞİŞİKLİK BURADA BİTER -->
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

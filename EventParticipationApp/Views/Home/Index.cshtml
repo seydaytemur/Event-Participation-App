@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etkinlik Katılım Uygulaması - Ana Sayfa</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfdfd; 
+        }
+        .hero-section {
+            background: linear-gradient(to right, #6366f1, #8b5cf6); 
+            color: white;
+            padding: 8rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: rotate(45deg);
+            z-index: 0;
+        }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 250px;
+            height: 250px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: rotate(-45deg);
+            z-index: 0;
+        }
+        .section-title {
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+            padding: 2rem;
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .btn-primary {
+            background-color: #6366f1; /* Indigo 500 */
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            font-weight: 600;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #4f46e5; /* Indigo 600 */
+        }
+        .btn-secondary {
+            background-color: #e2e8f0; /* Slate 200 */
+            color: #333;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .btn-secondary:hover {
+            background-color: #cbd5e1; /* Slate 300 */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Hero Section -->
+    <section class="hero-section relative">
+        <div class="container mx-auto px-4 relative z-10">
+            <h1 class="text-5xl font-bold mb-4 leading-tight">Etkinlik Katılım Uygulamasına Hoş Geldiniz!</h1>
+            <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+                En sevdiğiniz etkinlikleri keşfedin, kolayca katılın ve tüm katılımlarınızı tek bir yerden yönetin.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="btn-secondary" onclick="location.href='/Events/Index'">Etkinlikleri Keşfet</button>
+                <button class="btn-secondary" onclick="location.href='/Events/Create'">Yeni Etkinlik Oluştur</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl section-title text-center mb-12">Neden Bizi Seçmelisiniz?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card text-center">
+                    <div class="text-5xl text-indigo-500 mb-4">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Kolay Etkinlik Keşfi</h3>
+                    <p class="text-gray-600">Yaklaşan tüm etkinlikleri tek bir yerde görün ve size uygun olanı bulun.</p>
+                </div>
+                <div class="card text-center">
+                    <div class="text-5xl text-indigo-500 mb-4">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Basit Katılım Süreci</h3>
+                    <p class="text-gray-600">Sadece adınızla etkinliklere hızla katılın, karmaşık formlar yok.</p>
+                </div>
+                <div class="card text-center">
+                    <div class="text-5xl text-indigo-500 mb-4">
+                        <i class="fas fa-list-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Katılımlarınızı Yönetin</h3>
+                    <p class="text-gray-600">Katıldığınız tüm etkinlikleri kolayca listeleyin ve takip edin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-16 bg-indigo-100 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-indigo-800 mb-6">Hemen Başlayın!</h2>
+            <p class="text-lg text-indigo-700 mb-8 max-w-xl mx-auto">
+                Etkinlik dünyasına adım atın ve unutulmaz deneyimler yaşayın.
+            </p>
+            <button class="btn-primary" onclick="location.href='/Events/Index'">Etkinlikleri Görüntüle</button>
+        </div>
+    </section>
+
+    <!-- Footer (Opsiyonel, _Layout.cshtml'den de gelebilir) -->
+    <footer class="bg-white-800 text-gray py-6 mt-auto">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Etkinlik Katılım Uygulaması. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer><br />
+
+</body>
+</html>

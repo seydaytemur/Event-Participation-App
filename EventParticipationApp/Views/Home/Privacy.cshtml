@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Etkinlik Katılım Uygulaması</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfdfd; /* Kırık beyaz arka plan */
+            color: #333;
+        }
+        .card-header-gradient {
+            background: linear-gradient(to right, #6366f1, #8b5cf6); /* Ana sayfadaki Hero gradienti */
+        }
+        h1, h2, h3 {
+            color: #1a202c; /* Koyu gri başlıklar */
+        }
+        /* Ekstra stil, eğer _Layout.cshtml'den bağımsız çalışacaksa */
+        .container {
+            max-width: 1000px; /* İçeriğin çok geniş olmasını engeller */
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    @* Privacy.cshtml içeriği *@
+    <div class="container mt-8 mb-8 px-4">
+        <div class="card shadow-lg rounded-xl overflow-hidden">
+            <div class="card-header-gradient text-white py-6 px-6 rounded-t-xl">
+                <h1 class="text-white text-4xl font-bold text-center mb-2">Gizlilik Politikası</h1>
+                <p class="text-base text-center opacity-80">Son Güncelleme Tarihi: 7 Ağustos 2025</p>
+            </div>
+            <div class="card-body p-6 md:p-8 lg:p-10 bg-white">
+                <p class="mb-6 text-gray-700 leading-relaxed text-lg">
+                    Etkinlik Katılım Uygulaması olarak gizliliğinize büyük önem veriyoruz. Bu gizlilik politikası, uygulamamızı kullandığınızda kişisel bilgilerinizi nasıl topladığımızı, kullandığımızı, işlediğimizi ve koruduğumuzu açıklamaktadır.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4 border-b pb-2 border-gray-200">1. Giriş</h2>
+                <p class="mb-6 text-gray-700 leading-relaxed">
+                    Bu politika, Etkinlik Katılım Uygulaması'nın ("Uygulama") sunduğu hizmetler aracılığıyla topladığı tüm bilgileri kapsar. Uygulamamızı kullanarak, bu politikada belirtilen veri uygulamalarını kabul etmiş olursunuz.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4 border-b pb-2 border-gray-200">2. Topladığımız Bilgiler</h2>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    Uygulamamız, temel olarak etkinlik katılımlarınızı yönetmek için sınırlı kişisel bilgi toplar:
+                </p>
+                <ul class="list-disc list-inside mb-6 text-gray-700 leading-relaxed space-y-2">
+                    <li><strong>Katılımcı Adı:</strong> Bir etkinliğe katıldığınızda, sizi tanımlamak ve katılımınızı kaydetmek için adınız ve soyadınız istenir.</li>
+                    <li><strong>Etkinlik Bilgileri:</strong> Katıldığınız etkinliklerin başlığı, açıklaması ve tarihi gibi bilgiler Uygulama içinde saklanır ve listelenir. Bu bilgiler, etkinliğin kendisiyle ilgilidir ve kişisel olarak sizi doğrudan tanımlamaz.</li>
+                </ul>
+                <p class="mb-6 text-gray-700 leading-relaxed">
+                    Uygulamamız, IP adresleri, tarayıcı türleri veya cihaz bilgileri gibi ek kişisel tanımlayıcı verileri otomatik olarak toplamaz veya saklamaz.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4 border-b pb-2 border-gray-200">3. Bilgileri Nasıl Kullanırız</h2>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    Topladığımız bilgileri aşağıdaki amaçlarla kullanırız:
+                </p>
+                <ul class="list-disc list-inside mb-6 text-gray-700 leading-relaxed space-y-2">
+                    <li><strong>Hizmet Sağlama:</strong> Etkinliklere katılımınızı kaydetmek ve yönetmek.</li>
+                    <li><strong>Katılımları Listeleme:</strong> Belirli bir katılımcının katıldığı etkinlikleri göstermek.</li>
+                    <li><strong>Uygulama İşlevselliği:</strong> Uygulamanın temel özelliklerinin düzgün çalışmasını sağlamak.</li>
+                </ul>
+
+                <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4 border-b pb-2 border-gray-200">4. Bilgilerin Paylaşılması</h2>
+                <p class="mb-6 text-gray-700 leading-relaxed">
+                    Uygulamamız, topladığı kişisel bilgileri (katılımcı adları) üçüncü taraflarla <strong>paylaşmaz, satmaz veya kiralamaz</strong>. Katılımcı adları yalnızca Uygulama içinde, katılım listelerini göstermek amacıyla kullanılır.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4 border-b pb-2 border-gray-200">5. Veri Güvenliği</h2>
+                <p class="mb-6 text-gray-700 leading-relaxed">
+                    Bilgilerinizin güvenliğini sağlamak için makul teknik ve organizasyonel önlemler alıyoruz. Ancak, internet üzerinden hiçbir veri aktarım yönteminin veya elektronik depolama yönteminin %100 güvenli olmadığını unutmayın. Bu nedenle, mutlak güvenliği garanti edemeyiz.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4 border-b pb-2 border-gray-200">6. Çerezler (Cookies)</h2>
+                <p class="mb-6 text-gray-700 leading-relaxed">
+                    Uygulamamız, oturum yönetimi veya kullanıcı takibi için çerez kullanmaz.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4 border-b pb-2 border-gray-200">7. Üçüncü Taraf Bağlantıları</h2>
+                <p class="mb-6 text-gray-700 leading-relaxed">
+                    Uygulamamız, diğer web sitelerine bağlantılar içerebilir. Bu sitelerin gizlilik uygulamalarından veya içeriklerinden sorumlu değiliz. Ziyaret ettiğiniz her sitenin gizlilik politikasını okumanızı öneririz.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4 border-b pb-2 border-gray-200">8. Gizlilik Politikasındaki Değişiklikler</h2>
+                <p class="mb-6 text-gray-700 leading-relaxed">
+                    Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Herhangi bir değişiklik yaptığımızda, bu sayfanın üst kısmındaki "Son Güncelleme Tarihi"ni revize edeceğiz. Yapılan değişiklikler, bu sayfada yayınlandığı anda yürürlüğe girer. Değişiklikler için bu politikayı düzenli olarak gözden geçirmeniz tavsiye edilir.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4 border-b pb-2 border-gray-200">9. İletişim</h2>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    Bu gizlilik politikası hakkında herhangi bir sorunuz varsa, lütfen bizimle iletişime geçmekten çekinmeyin.
+                </p>
+                <p class="font-semibold text-indigo-600">
+                    E-posta: <a href="mailto:seyda.temur@outlook.com.tr" class="text-indigo-600 hover:underline">seyda.temur@outlook.com.tr</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    @* Footer (Eğer _Layout.cshtml kullanılmıyorsa buraya eklenebilir) *@
+    <footer class="bg-white-800 text-gray py-6 mt-auto">
+        <div class="container mx-auto text-center mt-2">
+            <p>&copy; 2025 Etkinlik Katılım Uygulaması. Tüm Hakları Saklıdır.</p>
+        </div> 
+    </footer>
+    <br />
+
+</body>
+</html>

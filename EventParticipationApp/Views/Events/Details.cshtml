@@ -1,0 +1,58 @@
+﻿@model EventParticipationApp.Models.Event
+
+@{
+    ViewData["Title"] = "Etkinlik Detayları";
+}
+
+<h1>Etkinlik Detayları</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EventDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EventDate)
+        </dd>
+    </dl>
+    <div class="mt-4">
+        <a asp-controller="Participations" asp-action="Create" asp-route-eventId="@Model.Id" class="btn btn-success">
+            Bu Etkinliğe Katıl
+        </a>
+
+        <h4 class="mt-4">Katılımcılar</h4>
+        @if (Model.Participations != null && Model.Participations.Any())
+        {
+            <ul class="list-group">
+                @foreach (var participant in Model.Participations)
+                {
+                    <li class="list-group-item">@participant.ParticipantName</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>Henüz katılımcı yok.</p>
+        }
+    </div>
+
+    <br />
+
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Düzenle</a>
+    <a asp-action="Index" class="btn btn-secondary" >Listeye Dön</a>
+</div>
