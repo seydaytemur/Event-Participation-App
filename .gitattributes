@@ -1,7 +1,7 @@
 # Exclude library scripts and styles from language statistics
-EventParticipationApp/wwwroot/lib/** linguist-vendored
+wwwroot/lib/** linguist-vendored
 *.min.js linguist-vendored
 *.min.css linguist-vendored
 
-# Force .cshtml files to be counted as C# instead of HTML
-*.cshtml linguist-language=C#
+# Optional: Treat .cshtml as standard HTML if C# stats are still low, 
+# or
