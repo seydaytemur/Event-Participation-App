@@ -1,26 +1,68 @@
-﻿@{
+﻿@section Styles {
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .form-input-focus {
+            transition: all 0.2s;
+        }
+        .form-input-focus:focus {
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+        }
+    </style>
+}
+
+@{
     ViewData["Title"] = "Etkinliğe Katıl";
 }
 
-<div class="container mt-5">
-    <h2>@ViewBag.EventTitle Etkinliğine Katıl</h2>
-    <hr />
+<div class="container mx-auto px-4 py-12">
+    <div class="max-w-2xl mx-auto">
+        <!-- Back Button -->
+        <a asp-controller="Events" asp-action="Details" asp-route-id="@ViewBag.EventId" 
+           class="inline-flex items-center text-purple-600 hover:text-purple-800 font-semibold mb-8 transition-colors group">
+            <i class="fas fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform"></i>
+            İptal ve Detaylara Dön
+        </a>
 
-    <div class="row">
-        <div class="col-md-6">
-            <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <!-- Participation Card -->
+        <div class="bg-white rounded-3xl shadow-xl shadow-purple-100 border border-gray-100 overflow-hidden">
+            <div class="bg-gradient-to-r from-purple-600 to-indigo-600 px-8 py-10 text-white text-center">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-2xl backdrop-blur-md mb-4 border border-white/30">
+                    <i class="fas fa-user-plus text-2xl"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold mb-2">@ViewBag.EventTitle</h2>
+                <p class="text-purple-100 italic">Bu harika etkinliğe katılmak için adınızı girin!</p>
+            </div>
 
+            <form asp-action="Create" class="p-8 md:p-10 space-y-6">
+                <div asp-validation-summary="ModelOnly" class="text-red-500 text-sm mb-4"></div>
                 <input type="hidden" name="EventId" value="@ViewBag.EventId" />
 
-                <div class="form-group mb-3">
-                    <label for="ParticipantName" class="control-label">Adınız Soyadınız</label>
-                    <input name="ParticipantName" class="form-control" required />
+                <div>
+                    <label for="ParticipantName" class="block text-sm font-bold text-gray-700 mb-2">Adınız ve Soyadınız</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <i class="fas fa-id-card text-gray-400"></i>
+                        </div>
+                        <input type="text" name="ParticipantName" id="ParticipantName" required
+                               class="block w-full pl-11 pr-4 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 focus:outline-none form-input-focus font-medium text-lg"
+                               placeholder="Örn: Ahmet Yılmaz" />
+                    </div>
                 </div>
 
-                <div class="form-group mt-4">
-                    <input type="submit" value="Katıl" class="btn btn-primary" />
-                    <a asp-controller="Events" asp-action="Details" asp-route-id="@ViewBag.EventId" class="btn btn-secondary">İptal</a>
+                <div class="pt-4">
+                    <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-6 rounded-xl transition-all shadow-lg shadow-purple-200 flex items-center justify-center gap-2 text-xl">
+                        <i class="fas fa-check-circle"></i>
+                        Katılımı Tamamla
+                    </button>
+                    <p class="text-center text-gray-400 text-sm mt-4">
+                        <i class="fas fa-info-circle mr-1"></i> Adınız katılımcı listesinde görünecektir.
+                    </p>
                 </div>
             </form>
         </div>

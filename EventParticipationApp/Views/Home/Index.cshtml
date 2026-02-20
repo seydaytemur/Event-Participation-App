@@ -1,9 +1,8 @@
-﻿<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etkinlik Katılım Uygulaması - Ana Sayfa</title>
+@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+@section Styles {
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Inter Font -->
@@ -62,7 +61,7 @@
         }
         .btn-primary {
             background-color: #6366f1; /* Indigo 500 */
-            color: white;
+            color: white !important;
             padding: 0.75rem 2rem;
             border-radius: 0.5rem; /* rounded-lg */
             font-weight: 600;
@@ -73,7 +72,7 @@
         }
         .btn-secondary {
             background-color: #e2e8f0; /* Slate 200 */
-            color: #333;
+            color: #333 !important;
             padding: 0.75rem 2rem;
             border-radius: 0.5rem;
             font-weight: 600;
@@ -83,9 +82,9 @@
             background-color: #cbd5e1; /* Slate 300 */
         }
     </style>
-</head>
-<body class="min-h-screen flex flex-col">
+}
 
+<div class="min-h-screen flex flex-col">
     <!-- Hero Section -->
     <section class="hero-section relative">
         <div class="container mx-auto px-4 relative z-10">
@@ -141,12 +140,6 @@
         </div>
     </section>
 
-    <!-- Footer (Opsiyonel, _Layout.cshtml'den de gelebilir) -->
-    <footer class="bg-white-800 text-gray py-6 mt-auto">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2025 Etkinlik Katılım Uygulaması. Tüm Hakları Saklıdır.</p>
-        </div>
-    </footer><br />
+    <!-- No duplicate footer here, it comes from _Layout.cshtml -->
+</div>
 
-</body>
-</html>
